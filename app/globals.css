@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --color-bg: #f7f4ef;
+  --color-bg-alt: #fbfaf8;
+  --color-text: #11110f;
+  --color-muted: #5f5a55;
+  --color-accent: #1f4d5c;
+  --color-border: #e7e1d7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  background-image: radial-gradient(1200px circle at 0% 0%, #ffffff 0%, var(--color-bg) 45%, var(--color-bg) 100%);
+  color: var(--color-text);
+}
+
+a {
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  text-decoration-color: var(--color-text);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+
+::selection {
+  background: rgba(31, 77, 92, 0.18);
+  color: var(--color-text);
+}
