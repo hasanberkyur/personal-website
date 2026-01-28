@@ -16,8 +16,7 @@ export default function HomePage() {
             Hasan Berk Yur
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-muted">
-            I build calm, dependable digital products with a focus on clarity, quality, and
-            measurable outcomes.
+            I design and build secure, reliable systems across networking, infrastructure, and applied security, grounded in strong computer science fundamentals.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
