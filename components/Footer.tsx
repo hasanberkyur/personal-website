@@ -10,6 +10,9 @@ export default function Footer() {
           <a className="text-accent underline decoration-border transition hover:text-text" href="mailto:hasanberkyur@outlook.com">
             Email
           </a>
+          <a className="text-accent underline decoration-border transition hover:text-text" href="/hasan-berkyur-cv.pdf" download>
+            Download CV
+          </a>
           <a className="text-accent underline decoration-border transition hover:text-text" href="https://github.com/hasanberkyur">
             GitHub
           </a>

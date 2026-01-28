@@ -15,6 +15,9 @@ export default function Header() {
           <a className="transition hover:text-text" href="#writing">
             Writing
           </a>
+          <a className="transition hover:text-text" href="/hasan-berkyur-cv.pdf" download>
+            CV
+          </a>
           <a className="transition hover:text-text" href="#contact">
             Contact
           </a>
