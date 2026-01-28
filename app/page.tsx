@@ -21,7 +21,7 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#work"
+              href="#projects"
               className="rounded-full border border-text bg-text px-5 py-2 text-sm font-medium text-bg transition hover:-translate-y-0.5"
             >
               View projects
@@ -36,9 +36,9 @@ export default function HomePage() {
         </section>
 
         <Section
-          id="work"
-          title="Selected work"
-          description="Three focused builds with tangible results across product, automation, and platforms."
+          id="projects"
+          title="My Projects"
+          description="Selected projects spanning Internet-scale networking fundamentals, security-focused system design, and hands-on infrastructure experimentation."
         >
           <div className="grid gap-6 md:grid-cols-3">
             {projects.map((project) => (
