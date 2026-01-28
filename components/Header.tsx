@@ -6,8 +6,8 @@ export default function Header() {
           Hasan Berk Yur
         </a>
         <nav aria-label="Primary" className="flex items-center gap-6 text-sm text-muted">
-          <a className="transition hover:text-text" href="#work">
-            Work
+          <a className="transition hover:text-text" href="#projects">
+            Projects
           </a>
           <a className="transition hover:text-text" href="#now">
             Now
