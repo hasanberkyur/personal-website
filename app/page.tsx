@@ -26,6 +26,13 @@ export default function HomePage() {
               View projects
             </a>
             <a
+              className="rounded-full border border-border px-5 py-2 text-sm font-medium text-text transition hover:-translate-y-0.5 hover:border-text"
+              href="/hasan-berkyur-cv.pdf" 
+              download
+            >
+              CV
+            </a>
+            <a
               href="mailto:hasanberkyur@outlook.com"
               className="rounded-full border border-border px-5 py-2 text-sm font-medium text-text transition hover:-translate-y-0.5 hover:border-text"
             >
