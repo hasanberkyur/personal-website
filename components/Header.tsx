@@ -6,17 +6,14 @@ export default function Header() {
           Hasan Berk Yur
         </a>
         <nav aria-label="Primary" className="flex items-center gap-6 text-sm text-muted">
-          <a className="transition hover:text-text" href="#projects">
+          <a className="transition hover:text-text" href="/#projects">
             Projects
           </a>
-          <a className="transition hover:text-text" href="#now">
+          <a className="transition hover:text-text" href="/#now">
             Now
           </a>
-          <a className="transition hover:text-text" href="#writing">
+          <a className="transition hover:text-text" href="/#writing">
             Writing
-          </a>
-          <a className="transition hover:text-text" href="#contact">
-            Contact
           </a>
         </nav>
       </div>

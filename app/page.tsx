@@ -26,6 +26,12 @@ export default function HomePage() {
               View projects
             </a>
             <a
+              href="/blog"
+              className="rounded-full border border-border px-5 py-2 text-sm font-medium text-text transition hover:-translate-y-0.5 hover:border-text"
+            >
+              Posts
+            </a>
+            <a
               className="rounded-full border border-border px-5 py-2 text-sm font-medium text-text transition hover:-translate-y-0.5 hover:border-text"
               href="/hasan-berkyur-cv.pdf" 
               download
