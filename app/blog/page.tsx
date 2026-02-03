@@ -2,6 +2,7 @@ import BlogFeed from "../../components/BlogFeed";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { getAllPosts } from "../../lib/posts";
+import { Suspense } from "react";
 
 export default function BlogPage() {
   const posts = getAllPosts();
@@ -22,7 +23,9 @@ export default function BlogPage() {
         </section>
 
         <section className="border-t border-border py-12">
-          <BlogFeed posts={posts} />
+          <Suspense fallback={<div className="text-sm text-muted">Loading notes…</div>}>
+            <BlogFeed posts={posts} />
+          </Suspense>
         </section>
       </main>
       <Footer />
