@@ -105,6 +105,8 @@ a:hover {
 .note-content a {
   color: var(--color-accent);
   text-decoration-color: var(--color-border);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .note-content blockquote {
@@ -158,4 +160,13 @@ button:focus-visible {
 ::selection {
   background: rgba(31, 77, 92, 0.18);
   color: var(--color-text);
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

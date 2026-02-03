@@ -31,19 +31,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Header />
       <main className="mx-auto max-w-3xl px-6 pb-20">
         <article className="py-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted">Post</p>
+          <a
+            href="/blog"
+            className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.3em] text-muted transition hover:text-text"
+          >
+            ← Other Posts
+          </a>
           <h1 className="mt-6 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             {post.title}
           </h1>
           <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted">
             <span>{formatDate(post.date)}</span>
             <span>•</span>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex min-w-0 w-full flex-wrap gap-2 sm:w-auto">
               {post.tags.map((tag) => (
                 <a
                   key={tag}
                   href={`/blog?tag=${encodeURIComponent(tag)}`}
-                  className="rounded-full border border-border px-3 py-1 font-mono text-muted transition hover:border-text hover:text-text"
+                  className="min-w-0 max-w-full break-words rounded-full border border-border px-3 py-1 font-mono text-muted transition hover:border-text hover:text-text"
                 >
                   #{tag}
                 </a>

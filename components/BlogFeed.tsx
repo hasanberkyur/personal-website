@@ -49,30 +49,41 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
 
   return (
     <div className="space-y-12">
-      <div className="flex flex-wrap items-end justify-between gap-6 border-b border-border pb-6">
-        <div className="space-y-3">
+      <div className="space-y-6 border-b border-border pb-6">
+        <div className="min-w-0 space-y-3">
           <p className="text-sm uppercase tracking-[0.28em] text-muted">Filter</p>
-          <div className="flex flex-wrap items-center gap-2.5">
-            <TagChip label="All" href={buildHref("", activeSort)} active={!activeTag} />
-            {allTags.map((tag) => (
-              <TagChip key={tag} label={tag} href={buildHref(tag, activeSort)} active={tag === activeTag} />
-            ))}
+          <div className="relative">
+            <div className="flex w-full max-w-full items-center gap-2.5 overflow-x-auto overscroll-x-contain pb-2">
+              <TagChip label="All" href={buildHref("", activeSort)} active={!activeTag} />
+              {allTags.map((tag) => (
+                <TagChip
+                  key={tag}
+                  label={tag}
+                  href={buildHref(tag, activeSort)}
+                  active={tag === activeTag}
+                />
+              ))}
+            </div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-bg to-transparent" />
           </div>
         </div>
-        <div className="flex items-center gap-2.5 text-sm text-muted">
-          {sortOptions.map((option) => (
-            <a
-              key={option.value}
-              href={buildHref(activeTag, option.value)}
-              className={`rounded-full border px-3 py-1 transition ${
-                activeSort === option.value
-                  ? "border-text bg-text text-bg"
-                  : "border-border text-muted hover:border-text hover:text-text"
-              }`}
-            >
-              {option.label}
-            </a>
-          ))}
+        <div className="space-y-3">
+          <p className="text-sm uppercase tracking-[0.28em] text-muted">Sort</p>
+          <div className="flex flex-wrap items-center gap-2.5 text-sm text-muted">
+            {sortOptions.map((option) => (
+              <a
+                key={option.value}
+                href={buildHref(activeTag, option.value)}
+                className={`rounded-full border px-3 py-1 transition ${
+                  activeSort === option.value
+                    ? "border-text bg-text text-bg"
+                    : "border-border text-muted hover:border-text hover:text-text"
+                }`}
+              >
+                {option.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
