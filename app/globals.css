@@ -8,6 +8,19 @@
   --color-muted: #5f5a55;
   --color-accent: #1f4d5c;
   --color-border: #e7e1d7;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #101113;
+    --color-bg-alt: #14171a;
+    --color-text: #f5f2ee;
+    --color-muted: #b3aba3;
+    --color-accent: #8fc3d3;
+    --color-border: #23272b;
+    color-scheme: dark;
+  }
 }
 
 * {
@@ -20,7 +33,7 @@ html {
 
 body {
   background-color: var(--color-bg);
-  background-image: radial-gradient(1200px circle at 0% 0%, #ffffff 0%, var(--color-bg) 45%, var(--color-bg) 100%);
+  background-image: radial-gradient(1200px circle at 0% 0%, #7f6f6f 0%, var(--color-bg) 45%, var(--color-bg) 100%);
   color: var(--color-text);
 }
 
