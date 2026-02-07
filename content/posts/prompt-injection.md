@@ -14,7 +14,7 @@ Prompt injection is one of those attacks that looks *almost trivial* at first, b
 In classic systems, we carefully separate *code* from *data*.  
 With LLMs, that boundary gets blurry — sometimes dangerously so.
 
-![Prompt injection concept diagram](https://www.promptfoo.dev/assets/images/direct-vs-indirect-e524e311384a03ad2db8ca1666098027.svg)
+![asd](asd.jpeg)
 
 ---
 
