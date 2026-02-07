@@ -14,8 +14,6 @@ Prompt injection is one of those attacks that looks *almost trivial* at first, b
 In classic systems, we carefully separate *code* from *data*.  
 With LLMs, that boundary gets blurry — sometimes dangerously so.
 
-![asd](asd.jpeg)
-
 ---
 
 ## The core idea (in my own words)

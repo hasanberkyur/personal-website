@@ -14,7 +14,11 @@
     "gray-matter": "latest",
     "remark": "latest",
     "remark-gfm": "latest",
-    "remark-html": "latest"
+    "remark-html": "latest",
+    "remark-rehype": "latest",
+    "rehype-stringify": "latest",
+    "rehype-pretty-code": "latest",
+    "shiki": "latest"
   },
   "devDependencies": {
     "@types/node": "latest",

@@ -72,7 +72,7 @@ To understand the program’s logic, I loaded the binary into **[IDA](https://he
 
 The blue block corresponds to the *main* function.
 
-![IDA Graph](IDA_graph.pdf)
+![IDA Graph](/IDA_graph.pdf)
 
 From the graph, we can observe that the program first calls *_read* to capture the user’s input from standard input. After the input is stored in memory, the program proceeds to compare the first **eight** characters of the provided string against an internally generated reference value. During this comparison process, a validation flag is maintained to track whether each character matches the expected sequence. Once the comparison is complete, the program evaluates this flag to determine the final result. If all checks succeed, it prints **“good kitty!”**; otherwise, it outputs **“bad kitty!”**. Based on this control flow, we can infer that the correct password must be exactly eight characters long.
 
@@ -109,7 +109,7 @@ To better understand semantics, I decompiled the binary using **Ghidra**, an Ope
 - Sets validation flag accordingly
 ## Password Generation Logic
 Looking further into the code:
-```C
+```c
   Password = ppeuler_3();
   dVar3 = cbrt((double)Password);
   Password = (long)dVar3;
@@ -130,7 +130,7 @@ For this, I used **[gdb](gnu.org/savannah-checkouts/gnu/gdb/index.html)** debugg
 
 ## Setting a Breakpoint
 I wanted to inspect memory **right after input is read**:
-```C
+```c
   UserInputNewLine_Length = read(0,UserInput,0x40);
   UserInputLength = UserInputNewLine_Length + -1; // <- The line we choose
 ```

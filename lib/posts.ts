@@ -4,6 +4,9 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export type PostFrontmatter = {
   title: string;
@@ -42,6 +45,19 @@ const toExcerpt = (content: string, length = 180) => {
 
   if (cleaned.length <= length) return cleaned;
   return `${cleaned.slice(0, length).trim()}…`;
+};
+
+const transformPdfEmbeds = (html: string) => {
+  return html.replace(
+    /<img[^>]*src="([^"]+\.pdf)"[^>]*alt="([^"]*)"[^>]*>/gi,
+    (_match, src: string, alt: string) => {
+      const label = alt?.trim() || "View PDF";
+      return `<div class="pdf-embed">
+  <iframe src="${src}" title="${label}" loading="lazy"></iframe>
+  <a href="${src}" target="_blank" rel="noreferrer">Open PDF</a>
+</div>`;
+    }
+  );
 };
 
 export const getAllPosts = (): Post[] => {
@@ -85,7 +101,16 @@ export const getPostBySlug = async (slug: string): Promise<PostWithContent | nul
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
   const frontmatter = data as PostFrontmatter;
-  const processedContent = await remark().use(remarkGfm).use(remarkHtml).process(content);
+  const processedContent = await remark()
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypePrettyCode, {
+      theme: "github-dark",
+      keepBackground: false
+    })
+    .use(rehypeStringify)
+    .process(content);
+  const contentHtml = transformPdfEmbeds(processedContent.toString());
 
   return {
     slug,
@@ -94,7 +119,7 @@ export const getPostBySlug = async (slug: string): Promise<PostWithContent | nul
     tags: normalizeTags(frontmatter.tags),
     excerpt: toExcerpt(content),
     content,
-    contentHtml: processedContent.toString()
+    contentHtml
   };
 };
 
