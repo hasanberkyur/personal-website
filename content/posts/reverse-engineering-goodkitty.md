@@ -1,6 +1,6 @@
 ---
-title: Reverse Engineering “Good Kitty” CrackMe
-date: 07-02-2026
+title: "Reverse Engineering: \"Good Kitty\" CrackMe"
+date: "2026-02-07"
 tags:
   - reverse-engineering
   - crack-me
