@@ -4,8 +4,17 @@ import ProjectCard from "../components/ProjectCard";
 import Section from "../components/Section";
 import { nowItems } from "../content/now";
 import { projects } from "../content/projects";
+import { getAllPosts } from "../lib/posts";
 
 export default function HomePage() {
+  const latestPosts = getAllPosts().slice(0, 3);
+  const formatDate = (value: string) =>
+    new Date(value).toLocaleDateString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric"
+    });
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -74,20 +83,35 @@ export default function HomePage() {
         </Section>
 
         <Section
-          id="writing"
-          title="Writing"
-          description="Short notes on systems, product, and craft."
+          id="posts"
+          title="Latest posts"
+          description="(CHANGE) Recent notes on security, systems, and reverse engineering."
         >
-          <div className="rounded-2xl border border-dashed border-border bg-bg-alt p-6">
-            <p className="text-sm text-muted">
-              Essays are in progress. If you want early drafts, reach out and I will share
-              updates.
-            </p>
-            <a
-              href="mailto:hasanberkyur@outlook.com"
-              className="mt-4 inline-flex text-sm font-medium text-accent underline decoration-border"
-            >
-              Get updates
+          <div className="space-y-4">
+            {latestPosts.map((post) => (
+              <article
+                key={post.slug}
+                className="rounded-2xl border border-border bg-bg-alt p-5 transition hover:border-text"
+              >
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted">
+                  <span>{formatDate(post.date)}</span>
+                  <span>•</span>
+                  <span className="font-mono">
+                    {post.tags.slice(0, 3).map((tag) => `#${tag}`).join(" ")}
+                  </span>
+                </div>
+                <h3 className="mt-3 text-xl font-semibold tracking-tight">
+                  <a className="transition hover:text-accent" href={`/blog/${post.slug}`}>
+                    {post.title}
+                  </a>
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{post.excerpt}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-6">
+            <a className="text-sm font-medium text-accent underline decoration-border" href="/blog">
+              View all posts
             </a>
           </div>
         </Section>
