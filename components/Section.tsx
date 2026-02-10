@@ -1,7 +1,7 @@
 type SectionProps = {
   id?: string;
   title: string;
-  description?: string;
+  description?: React.ReactNode;
   children: React.ReactNode;
 };
 

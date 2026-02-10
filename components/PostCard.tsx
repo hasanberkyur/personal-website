@@ -15,12 +15,26 @@ const formatDate = (value: string) =>
     year: "numeric"
   });
 
+const typeTitleStyles: Record<string, string> = {
+  note: "group-hover:text-rose-400 group-focus-within:text-rose-400 active:text-rose-400",
+  blog: "group-hover:text-blue-400 group-focus-within:text-blue-400 active:text-blue-400",
+  project: "group-hover:text-emerald-400 group-focus-within:text-emerald-400 active:text-emerald-400"
+};
+
 export default function PostCard({ post, activeTag }: PostCardProps) {
+  const hoverClass =
+    typeTitleStyles[(post.type ?? "").toLowerCase()] ||
+    "group-hover:text-accent group-focus-within:text-accent active:text-accent";
+
   return (
-    <article className="rounded-2xl border border-border bg-bg-alt p-6 transition hover:border-text">
-      <p className="text-xs uppercase tracking-[0.28em] text-muted">{formatDate(post.date)}</p>
+    <article className="group rounded-2xl border border-border bg-bg-alt p-6 transition hover:border-text">
+      <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.28em] text-muted">
+        <span>{formatDate(post.date)}</span>
+        <span>•</span>
+        <span>{post.type}</span>
+      </div>
       <h3 className="mt-4 text-2xl font-semibold leading-tight tracking-tight">
-        <a className="transition hover:text-accent" href={`/blog/${post.slug}`}>
+        <a className={`text-text transition ${hoverClass}`} href={`/blog/${post.slug}`}>
           {post.title}
         </a>
       </h3>

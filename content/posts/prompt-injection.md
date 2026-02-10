@@ -1,5 +1,6 @@
 ---
 title: "Prompt Injection: when instructions become the attack surface"
+type: "note"
 date: "2026-02-03"
 tags:
   - prompt-injection

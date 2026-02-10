@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import LatestPosts from "../components/LatestPosts";
 import ProjectCard from "../components/ProjectCard";
 import Section from "../components/Section";
 import { nowItems } from "../content/now";
@@ -8,12 +9,6 @@ import { getAllPosts } from "../lib/posts";
 
 export default function HomePage() {
   const latestPosts = getAllPosts().slice(0, 3);
-  const formatDate = (value: string) =>
-    new Date(value).toLocaleDateString("en-US", {
-      month: "short",
-      day: "2-digit",
-      year: "numeric"
-    });
 
   return (
     <div className="min-h-screen">
@@ -25,7 +20,8 @@ export default function HomePage() {
             Hasan Berk Yur
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-muted">
-            I design and build secure, reliable systems across networking, infrastructure, and applied security, grounded in strong computer science fundamentals.
+            I design and build secure, reliable systems across networking, infrastructure, and
+            applied security, grounded in strong computer science fundamentals.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -42,7 +38,7 @@ export default function HomePage() {
             </a>
             <a
               className="rounded-full border border-border px-5 py-2 text-sm font-medium text-text transition hover:-translate-y-0.5 hover:border-text"
-              href="/hasan-berkyur-cv.pdf" 
+              href="/hasan-berkyur-cv.pdf"
               download
             >
               CV
@@ -68,6 +64,8 @@ export default function HomePage() {
           </div>
         </Section>
 
+        <LatestPosts posts={latestPosts} />
+
         <Section
           id="now"
           title="Now"
@@ -80,40 +78,6 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-        </Section>
-
-        <Section
-          id="posts"
-          title="Latest posts"
-          description="(CHANGE) Recent notes on security, systems, and reverse engineering."
-        >
-          <div className="space-y-4">
-            {latestPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="rounded-2xl border border-border bg-bg-alt p-5 transition hover:border-text"
-              >
-                <div className="flex flex-wrap items-center gap-3 text-xs text-muted">
-                  <span>{formatDate(post.date)}</span>
-                  <span>•</span>
-                  <span className="font-mono">
-                    {post.tags.slice(0, 3).map((tag) => `#${tag}`).join(" ")}
-                  </span>
-                </div>
-                <h3 className="mt-3 text-xl font-semibold tracking-tight">
-                  <a className="transition hover:text-accent" href={`/blog/${post.slug}`}>
-                    {post.title}
-                  </a>
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{post.excerpt}</p>
-              </article>
-            ))}
-          </div>
-          <div className="mt-6">
-            <a className="text-sm font-medium text-accent underline decoration-border" href="/blog">
-              View all posts
-            </a>
-          </div>
         </Section>
       </main>
       <Footer />

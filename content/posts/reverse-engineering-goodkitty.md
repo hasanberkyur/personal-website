@@ -1,5 +1,6 @@
 ---
 title: "Reverse Engineering: \"Good Kitty\" CrackMe"
+type: "project"
 date: "2026-02-07"
 tags:
   - reverse-engineering

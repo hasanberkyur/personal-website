@@ -10,6 +10,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 
 export type PostFrontmatter = {
   title: string;
+  type?: string;
   date: string;
   tags: string[];
 };
@@ -31,6 +32,13 @@ const normalizeTags = (tags: unknown): string[] => {
     return tags.map((tag) => String(tag).trim()).filter(Boolean);
   }
   return [];
+};
+
+const normalizeType = (value: unknown): string => {
+  if (typeof value === "string" && value.trim()) {
+    return value.trim();
+  }
+  return "post";
 };
 
 const toExcerpt = (content: string, length = 180) => {
@@ -76,6 +84,7 @@ export const getAllPosts = (): Post[] => {
       return {
         slug,
         title: frontmatter.title,
+        type: normalizeType(frontmatter.type),
         date: frontmatter.date,
         tags: normalizeTags(frontmatter.tags),
         excerpt: toExcerpt(content)
@@ -115,6 +124,7 @@ export const getPostBySlug = async (slug: string): Promise<PostWithContent | nul
   return {
     slug,
     title: frontmatter.title,
+    type: normalizeType(frontmatter.type),
     date: frontmatter.date,
     tags: normalizeTags(frontmatter.tags),
     excerpt: toExcerpt(content),

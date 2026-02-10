@@ -14,6 +14,12 @@ const formatDate = (value: string) =>
     year: "numeric"
   });
 
+const typeTextStyles: Record<string, string> = {
+  note: "text-rose-400",
+  blog: "text-blue-400",
+  project: "text-emerald-400"
+};
+
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
@@ -40,6 +46,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <h1 className="mt-6 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
             {post.title}
           </h1>
+          <p
+            className={`mt-3 text-xs uppercase tracking-[0.3em] ${
+              typeTextStyles[(post.type ?? "").toLowerCase()] || "text-muted"
+            }`}
+          >
+            {post.type}
+          </p>
           <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted">
             <span>{formatDate(post.date)}</span>
             <span>•</span>
