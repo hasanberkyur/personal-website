@@ -12,7 +12,7 @@ export default function BlogPage() {
       <Header />
       <main className="mx-auto max-w-5xl px-6 pb-20">
         <section className="py-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted">Posts</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-muted">Posts</p>
           <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             Things I’m thinking about.
           </h1>

@@ -18,12 +18,12 @@ export default function LatestPosts({ posts }: LatestPostsProps) {
       id="posts"
       title="My latest posts"
       description={
-        <>
-          A mix of <strong className="font-semibold">notes</strong>
-          , <strong className="font-semibold">blogs</strong>
-          , and <strong className="font-semibold">projects</strong> 
-           — things I’m working on and learning from.
-        </>
+        <span className="text-base">
+          A mix of <strong className="font-semibold">notes</strong>,{" "}
+          <strong className="font-semibold">blogs</strong>, and{" "}
+          <strong className="font-semibold">projects</strong> — things I’m working on and learning
+          from.
+        </span>
       }
     >
       <div className="space-y-4">
@@ -49,7 +49,7 @@ export default function LatestPosts({ posts }: LatestPostsProps) {
         ))}
       </div>
       <div className="mt-6">
-        <a className="text-sm font-medium text-accent underline decoration-border" href="/blog">
+        <a className="text-lg font-medium text-accent underline decoration-border" href="/blog">
           View all posts
         </a>
       </div>

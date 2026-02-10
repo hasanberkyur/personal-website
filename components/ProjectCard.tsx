@@ -8,7 +8,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="flex h-full flex-col rounded-2xl border border-border bg-bg-alt p-6 shadow-soft">
       <h3 className="text-lg font-semibold">{project.title}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-muted">{project.description}</p>
+      <p className="mt-3 text-base leading-relaxed text-muted">{project.description}</p>
       <div className="mt-4 flex flex-wrap gap-2">
         {project.tags.map((tag) => (
           <span

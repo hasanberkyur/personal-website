@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import AboutSection from "../components/AboutSection";
 import LatestPosts from "../components/LatestPosts";
 import ProjectCard from "../components/ProjectCard";
 import Section from "../components/Section";
@@ -15,7 +16,7 @@ export default function HomePage() {
       <Header />
       <main className="mx-auto max-w-5xl px-6 pb-20">
         <section className="py-16">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted">Portfolio</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-muted">Portfolio</p>
           <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
             Hasan Berk Yur
           </h1>
@@ -55,7 +56,11 @@ export default function HomePage() {
         <Section
           id="projects"
           title="My Projects"
-          description="Selected projects spanning Internet-scale networking fundamentals, security-focused system design, and hands-on infrastructure experimentation."
+          description={
+            <span className="text-base">
+              Selected projects spanning Internet-scale networking fundamentals, security-focused system design, and hands-on infrastructure experimentation.
+            </span>
+          }
         >
           <div className="grid gap-6 md:grid-cols-3">
             {projects.map((project) => (
@@ -66,12 +71,18 @@ export default function HomePage() {
 
         <LatestPosts posts={latestPosts} />
 
+        <AboutSection />
+
         <Section
           id="now"
           title="Now"
-          description="Current priorities and what I am open to next."
+          description={
+            <span className="text-base">
+              Current priorities and what I am open to next.
+            </span>
+          }
         >
-          <ul className="list-disc space-y-3 pl-5 text-sm text-muted">
+          <ul className="list-disc space-y-3 pl-5 text-base text-muted">
             {nowItems.map((item) => (
               <li key={item} className="leading-relaxed">
                 {item}

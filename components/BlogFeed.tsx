@@ -87,7 +87,7 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
     <div className="space-y-12">
       <div className="space-y-6 border-b border-border pb-6">
         <div className="min-w-0 space-y-3">
-          <p className="text-sm uppercase tracking-[0.28em] text-muted">Filter</p>
+          <p className="text-base uppercase tracking-[0.28em] text-muted">Filter</p>
           <div className="relative -mx-6 overflow-hidden px-6">
             <div className="flex w-full max-w-full items-center gap-2.5 overflow-x-auto overscroll-x-contain pb-2 pr-8">
               <TagChip label="All" href={buildHref("", activeSort, activeType)} active={!activeTag} />
@@ -104,8 +104,8 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
           </div>
         </div>
         <div className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.28em] text-muted">Type</p>
-          <div className="flex flex-wrap items-center gap-2.5 text-sm text-muted">
+          <p className="text-base uppercase tracking-[0.28em] text-muted">Type</p>
+          <div className="flex flex-wrap items-center gap-2.5 text-base text-muted">
             {typeOptions.map((option) => (
               <a
                 key={option.value || "all"}
@@ -130,8 +130,8 @@ export default function BlogFeed({ posts }: BlogFeedProps) {
           </div>
         </div>
         <div className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.28em] text-muted">Sort</p>
-          <div className="flex flex-wrap items-center gap-2.5 text-sm text-muted">
+          <p className="text-base uppercase tracking-[0.28em] text-muted">Sort</p>
+          <div className="flex flex-wrap items-center gap-2.5 text-base text-muted">
             {sortOptions.map((option) => (
               <a
                 key={option.value}

@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <article className="py-16">
           <a
             href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.3em] text-muted transition hover:text-text"
+            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.3em] text-muted transition hover:text-text"
           >
             ← Other Posts
           </a>
@@ -53,7 +53,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           >
             {post.type}
           </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted">
+          <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted">
             <span>{formatDate(post.date)}</span>
             <span>•</span>
             <div className="flex min-w-0 w-full flex-wrap gap-2 sm:w-auto">
