@@ -12,8 +12,8 @@ export default function Header() {
           <a className="transition hover:text-text" href="/#now">
             Now
           </a>
-          <a className="transition hover:text-text" href="/#writing">
-            Writing
+          <a className="transition hover:text-text" href="/#posts">
+            Posts
           </a>
         </nav>
       </div>
