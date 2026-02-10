@@ -2,12 +2,12 @@
 @config "../tailwind.config.ts";
 
 :root {
-  --color-bg: #f7f4ef;
-  --color-bg-alt: #fbfaf8;
-  --color-text: #111100;
-  --color-muted: #5f5a55;
+  --color-bg: #ffffff;
+  --color-bg-alt: #ffffff;
+  --color-text: #000000;
+  --color-muted: #292725;
   --color-accent: #1f4d5c;
-  --color-border: #e7e1d7;
+  --color-border: #000000;
   color-scheme: light;
 }
 

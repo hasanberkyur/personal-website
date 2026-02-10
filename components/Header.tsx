@@ -9,11 +9,11 @@ export default function Header() {
           <a className="transition hover:text-text" href="/#projects">
             Projects
           </a>
-          <a className="transition hover:text-text" href="/#now">
-            Now
-          </a>
           <a className="transition hover:text-text" href="/#posts">
             Posts
+          </a>
+          <a className="transition hover:text-text" href="/#about">
+            About
           </a>
         </nav>
       </div>
